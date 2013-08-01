@@ -24,3 +24,7 @@
   @extend .control-group;
   @extend .error;
  }
+
+ footer {
+ 	margin: 50px;
+ }
