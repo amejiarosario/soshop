@@ -1,4 +1,5 @@
 <%= form_for @product, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= error_messages_for(@product) %>
   <div class="control-group">
     <%= f.label :title, :class => 'control-label' %>
     <div class="controls">
@@ -21,12 +22,6 @@
     <%= f.label :photo, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :photo, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :user_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :user_id, :class => 'text_field' %>
     </div>
   </div>
 
