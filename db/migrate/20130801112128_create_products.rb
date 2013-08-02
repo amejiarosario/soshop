@@ -4,7 +4,7 @@ class CreateProducts < ActiveRecord::Migration
       t.string :title
       t.text :description
       t.decimal :price, :precision => 8, :scale => 2
-      t.string :photo
+      t.has_attached_file :photo
       t.references :user, index: true
 
       t.timestamps
