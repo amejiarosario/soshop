@@ -7,5 +7,6 @@ class Product < ActiveRecord::Base
   }
 
   validates :title, presence: true
+  validates :price, presence: true, numericality: true
   validates_attachment_presence :photo
 end
