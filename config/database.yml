@@ -16,11 +16,11 @@
 #
 development:
   adapter: postgresql
-  encoding: unicode
+  #encoding: unicode
   database: soshop_development
   pool: 5
-  username: postgres
-  password: recrins
+  #username: postgres
+  #password: recrins
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -45,18 +45,18 @@ development:
 # Do not set this db to the same as development or production.
 test:
   adapter: postgresql
-  encoding: unicode
+  #encoding: unicode
   database: soshop_test
-  pool: 5
-  username: postgres
-  password: recrins
+  #pool: 5
+  #username: postgres
+  #password: recrins
   host: localhost
 
 production:
   adapter: postgresql
-  encoding: unicode
+  #encoding: unicode
   database: soshop_production
-  pool: 5
-  username: postgres
-  password: recrins
+  #pool: 5
+  #username: postgres
+  #password: recrins
   host: localhost

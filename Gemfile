@@ -57,6 +57,8 @@ group :development do
 	gem 'quiet_assets'
 	gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'guard-rspec'
+  gem 'zeus'
 end
 
 group :test, :development do
@@ -66,5 +68,6 @@ end
 group :test do
   gem 'capybara'
   gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
 end
 
