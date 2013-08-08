@@ -14,7 +14,6 @@ describe "Cancel Registration" do
     # Cancel registration
     click_link 'Profile'
     click_button 'Cancel my account'
-    # page.driver.browser.switch_to.alert.accept unless Capybara.javascript_driver == :poltergeist
   end
 
 
