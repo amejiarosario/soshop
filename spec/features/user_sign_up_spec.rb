@@ -19,7 +19,7 @@ describe 'User Sign Up' do
     end
 
     it 'shows the correct navigation links' do
-      expect(page).to have_button('Sign up')
+      expect(page).to have_selector(:link_or_button, 'Sign up')
     end    
   end
 
@@ -32,11 +32,11 @@ describe 'User Sign Up' do
     end
 
     it 'displays a welcome message' do
-      expect(page).to have_content('Welcome! You have signed up successfully.')
+      expect(page).to have_content('signed up successfully')
     end
 
     it 'shows the correct navigation links' do
-      expect(page).to have_link('Logout')
+      expect(page).to have_selector(:link_or_button, 'Logout')
     end
   end
 end

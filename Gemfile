@@ -57,17 +57,19 @@ group :development do
 	gem 'quiet_assets'
 	gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'guard-rspec'
-  gem 'zeus'
 end
 
 group :test, :development do
+  gem 'guard-rspec'
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'zeus'
 end
 
 group :test do
   gem 'capybara'
+  gem 'poltergeist'
+  gem 'launchy'
   gem 'shoulda-matchers'
-  gem 'factory_girl_rails'
 end
 
