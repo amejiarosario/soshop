@@ -6,6 +6,10 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/poltergeist'
 
+include ActionDispatch::TestProcess
+include Warden::Test::Helpers
+Warden.test_mode! # http://blog.pixarea.com/2013/01/making-rspec-feature-specs-easy-with-devise
+
 Capybara.javascript_driver = :poltergeist
 
 # Requires supporting ruby files with custom matchers and macros, etc,

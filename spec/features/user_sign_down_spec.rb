@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Cancel Registration" do
+describe "User Sign Down" do
   let!(:user) { FactoryGirl.create(:user) }
 
   before do

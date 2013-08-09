@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Flash Notices", js: true do
+describe "User Sign Up Flash Notices", js: true do
   before do
     # When an unauthenticated user visits
     # the edit_user_registration_path they
