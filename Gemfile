@@ -54,7 +54,6 @@ gem 'paperclip'
 gem 'aws-sdk'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
-gem 'simple_form'
 
 group :development do
 	gem 'quiet_assets'
