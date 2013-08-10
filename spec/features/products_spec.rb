@@ -18,21 +18,47 @@ describe 'Product Pages' do
 	end
 
 	context 'when existing' do
-		it 'unregistered users can see it' do
-			product = FactoryGirl.create :product
-			visit product_path(product)
-			expect(page).to have_content product.title
-			page.current_path.should == product_path(product)
+		context 'and the user is unregistered' do
+			let(:product) { FactoryGirl.create :product }
+			before :each do
+				visit product_path(product)
+			end
+
+			it 'he can see it' do
+				page.current_path.should == product_path(product)
+			end
+
+			it 'doesn\'t have admin buttons' do
+				expect(page).to_not have_button('Back')
+				expect(page).to_not have_button('Delete')
+				expect(page).to_not have_button('Edit')
+			end
+
+			it 'has purchase link' do
+				expect(page).to have_link('Buy Now')
+			end
 		end
 
 		context 'and is modified by' do
 			let(:user) { FactoryGirl.create :user }
 			let(:product) { FactoryGirl.create :product, user: user }
 
-			it 'user who created it, he can edit it' do
-				login_as user, scope: :user
-				visit edit_product_path(product)
-				page.current_path.should == edit_product_path(product)
+			context 'user who created it' do
+				before :each do
+					login_as user, scope: :user
+				end
+
+				it 'he can edit it' do
+					visit edit_product_path(product)
+					page.current_path.should == edit_product_path(product)
+				end
+
+				it 'doesn\'t have admin buttons' do
+					visit product_path(product)
+					expect(page).to have_link('Back')
+					expect(page).to have_link('Delete')
+					expect(page).to have_link('Edit')
+				end
 			end
 
 			it 'user who didn\'t created it, he cannot edit it' do
