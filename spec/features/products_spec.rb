@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe 'Products' do
-	context 'new' do
+describe 'Product Pages' do
+	context 'when new' do
 		it 'unregistred users must receive sign in message' do
 			visit new_product_path
 			expect(page).to have_content('You need to sign in or sign up before continuing.')
@@ -17,7 +17,7 @@ describe 'Products' do
 		end
 	end
 
-	context 'existing' do
+	context 'when existing' do
 		it 'unregistered users can see it' do
 			product = FactoryGirl.create :product
 			visit product_path(product)
@@ -25,23 +25,21 @@ describe 'Products' do
 			page.current_path.should == product_path(product)
 		end
 
-		context 'when is modified by' do
-			before :each do
-				@user = FactoryGirl.create :user
-				@product = FactoryGirl.create :product, user: @user
+		context 'and is modified by' do
+			let(:user) { FactoryGirl.create :user }
+			let(:product) { FactoryGirl.create :product, user: user }
+
+			it 'user who created it, he can edit it' do
+				login_as user, scope: :user
+				visit edit_product_path(product)
+				page.current_path.should == edit_product_path(product)
 			end
 
-			it 'users who created it they can' do
-				login_as @user, scope: :user
-				visit edit_product_path(@product)
-				page.current_path.should == edit_product_path(@product)
-			end
-
-			it 'users who didn\'t created it cannot' do
+			it 'user who didn\'t created it, he cannot edit it' do
 				other_user = FactoryGirl.create :user
 				login_as other_user, scope: :user
-				visit edit_product_path(@product)
-				page.current_path.should_not == edit_product_path(@product)
+				visit edit_product_path(product)
+				page.current_path.should_not == edit_product_path(product)
 			end
 		end
 	end

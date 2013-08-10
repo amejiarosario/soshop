@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, except: :show
+  before_filter :product_creator, only: [:edit, :update]
 
   # GET /products
   # GET /products.json
@@ -72,5 +73,16 @@ class ProductsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
       params.require(:product).permit(:title, :description, :price, :photo, :user_id)
+    end
+
+    def product_creator
+      if @product.user != current_user
+        err_msg = 'You cannot modify this product.'
+        flash.now[:error] = err_msg
+        respond_to do |format|
+          format.html { redirect_to @product }
+          format.json { render json: err_msg, status: :unprocessable_entity }
+        end
+      end
     end
 end
