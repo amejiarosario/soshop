@@ -220,6 +220,15 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
+  if Rails.env.development?
+    OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+    config.omniauth :facebook, ENV['SOSHOP_FACEBOOK_KEY'], ENV['SOSHOP_FACEBOOK_SECRET'],
+      {:scope => 'email'}
+  else
+    config.omniauth :facebook, ENV['SOSHOP_FACEBOOK_KEY'], ENV['SOSHOP_FACEBOOK_SECRET'],
+      {:scope => 'email', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
+  end
+  config.omniauth :twitter, ENV['SOSHOP_TWITTER_KEY'], ENV['SOSHOP_TWITTER_SECRET']
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

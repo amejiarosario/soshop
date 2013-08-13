@@ -56,7 +56,7 @@
                 <li class="dropdown">
                   <a href="#" data-toggle="dropdown">
                     <i class="icon-user"></i>
-                    <%= current_user.email %> 
+                    <%= current_user.email %>
                     <b class="caret"></b>
                   </a>
                   <ul class="dropdown-menu">
@@ -67,8 +67,11 @@
                 </li>
               <% else %>
                 <li>
-                  <%= link_to('Login', new_user_session_path)  %>  
-                </li>               
+                  <%= link_to('Login', new_user_session_path)  %>
+                </li>
+                <!-- <li>
+                  <%#= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+                </li> -->
               <% end %>
             </ul>
           </div><!--/.nav-collapse -->
