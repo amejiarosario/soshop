@@ -19,6 +19,12 @@
     </div>
   </div>
   <div class="control-group">
+    <%= f.label :stock, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :stock, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
     <%= f.label :photo, :class => 'control-label' %>
     <div class="controls">
       <%= f.file_field :photo, :class => 'file_field' %>
