@@ -8,7 +8,9 @@ require 'capybara/poltergeist'
 
 include ActionDispatch::TestProcess
 include Warden::Test::Helpers
+
 Warden.test_mode! # http://blog.pixarea.com/2013/01/making-rspec-feature-specs-easy-with-devise
+OmniAuth.config.test_mode = true
 
 Capybara.javascript_driver = :poltergeist
 
