@@ -55,6 +55,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'coveralls', require: false
 gem 'google-analytics-rails'
+gem 'newrelic_rpm'
 
 group :development do
 	gem 'quiet_assets'

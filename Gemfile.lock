@@ -133,6 +133,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.7.8)
     multipart-post (1.2.0)
+    newrelic_rpm (3.6.6.147)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     oauth (0.4.7)
@@ -292,6 +293,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   less-rails
+  newrelic_rpm
   omniauth-facebook
   omniauth-twitter
   paperclip
