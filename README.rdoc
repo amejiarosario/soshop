@@ -4,4 +4,8 @@ Travis
 {<img src="https://secure.travis-ci.org/amejiarosario/soshop.png" />}[http://travis-ci.org/amejiarosario/soshop]
 
 Codeship
-{<img src="https://www.codeship.io/projects/fe7565c0-fbf7-0130-eaa1-4ac64c4d391e/status" />}[https://www.codeship.io/projects/6822]
+{<img alt="Status?branch=master" src="https://www.codeship.io/projects/fe7565c0-fbf7-0130-eaa1-4ac64c4d391e/status?branch=master" />}[https://www.codeship.io/projects/6822]
+
+Coveralls
+{<img src="https://coveralls.io/repos/amejiarosario/soshop/badge.png" alt="Coverage Status" />}[https://coveralls.io/r/amejiarosario/soshop]
+
