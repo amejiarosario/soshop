@@ -9,3 +9,5 @@ Codeship
 Coveralls
 {<img src="https://coveralls.io/repos/amejiarosario/soshop/badge.png" alt="Coverage Status" />}[https://coveralls.io/r/amejiarosario/soshop]
 
+CodeClimate
+{<img src="https://codeclimate.com/repos/522e9f1bc7f3a327ba012261/badges/38d84f0023bef73021de/gpa.png" />}[https://codeclimate.com/repos/522e9f1bc7f3a327ba012261/feed]
