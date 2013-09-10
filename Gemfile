@@ -54,6 +54,7 @@ gem 'paperclip'
 gem 'aws-sdk'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+gem 'coveralls', require: false
 
 group :development do
 	gem 'quiet_assets'
@@ -74,4 +75,3 @@ group :test do
   gem 'launchy'
   gem 'shoulda-matchers'
 end
-
