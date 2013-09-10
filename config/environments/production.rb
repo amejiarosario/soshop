@@ -89,4 +89,7 @@ Soshop::Application.configure do
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     }
   }
+
+  # google analytics
+  GA.tracker = "UA-43898749-1"
 end
