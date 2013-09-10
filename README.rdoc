@@ -1,7 +1,7 @@
 == README
 
 Travis
-[![Build Status](https://secure.travis-ci.org/amejiarosario/soshop.png)](http://travis-ci.org/amejiarosario/soshop)
+{<img src="https://secure.travis-ci.org/amejiarosario/soshop.png" />}[http://travis-ci.org/amejiarosario/soshop]
 
 Codeship
-https://www.codeship.io/projects/fe7565c0-fbf7-0130-eaa1-4ac64c4d391e/status
+{<img src="https://www.codeship.io/projects/fe7565c0-fbf7-0130-eaa1-4ac64c4d391e/status" />}[https://www.codeship.io/projects/6822]
