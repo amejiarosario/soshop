@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20130826220344) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "stock"
+    t.integer  "stock",                                      default: 1
   end
 
   add_index "products", ["user_id"], name: "index_products_on_user_id", using: :btree

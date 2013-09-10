@@ -11,5 +11,7 @@ describe Product do
   it { should validate_presence_of :price }
   it { should validate_numericality_of :price }
   it { should_not allow_value("-1.0").for(:price) }
+  it { should validate_presence_of :stock }
+  it { should validate_numericality_of(:stock).only_integer }
   it { should validate_attachment_presence :photo }
 end

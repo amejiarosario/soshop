@@ -9,6 +9,7 @@ class Product < ActiveRecord::Base
   validates :title, presence: true
   validates :price, presence: true,
     numericality: { greater_than_or_equal_to: 0 }
-  validates :stock, numericality: { only_integer: true }
+  validates :stock, presence: true,
+    numericality: { only_integer: true }
   validates_attachment_presence :photo
 end
