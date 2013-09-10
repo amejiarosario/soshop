@@ -1,0 +1,1 @@
+SpreedlyCore.configure
