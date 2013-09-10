@@ -12,7 +12,7 @@ describe "User Sign Down" do
     click_button 'Sign in'
 
     # Cancel registration
-    click_link 'Profile'
+    click_link user.email
     click_button 'Cancel my account'
   end
 

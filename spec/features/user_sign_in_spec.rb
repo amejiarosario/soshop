@@ -41,7 +41,7 @@ describe "User Sign In" do
     it "shows the correct navigation links" do
       expect(page).to_not have_selector(:link_or_button, 'Sign in')
       expect(page).to_not have_selector(:link_or_button, 'Sign up')
-      expect(page).to have_selector(:link_or_button, 'Profile')
+      page.should have_xpath("//a[contains(@href,'users/edit')]")
       expect(page).to have_selector(:link_or_button, 'Logout')
     end
   end
