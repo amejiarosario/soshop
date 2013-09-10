@@ -45,16 +45,16 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-
-gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-gem "twitter-bootstrap-rails"
-gem "devise"
+gem 'less-rails' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem 'twitter-bootstrap-rails'
+gem 'devise'
 gem 'rails_12factor', group: :production
 gem 'paperclip'
 gem 'aws-sdk'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'coveralls', require: false
+gem 'google-analytics-rails'
 
 group :development do
 	gem 'quiet_assets'
