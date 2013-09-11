@@ -18,6 +18,9 @@
 
 <div class="form-actions">
   <% if current_user && current_user == @product.user %>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fparse.com" target="_blank">
+      share on Facebook
+    </a>
     <%= link_to t('.back', :default => t("helpers.links.back")),
                 products_path, :class => 'btn'  %>
     <%= link_to t('.edit', :default => t("helpers.links.edit")),
