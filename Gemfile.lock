@@ -240,8 +240,8 @@ GEM
       simplecov-html (~> 0.7.1)
     simplecov-html (0.7.1)
     slop (3.4.6)
-    spreedly-core-ruby (0.1.0)
-      httparty (= 0.7.7)
+    spreedly (2.0.2)
+      nokogiri
     sprockets (2.10.0)
       hike (~> 1.2)
       multi_json (~> 1.0)

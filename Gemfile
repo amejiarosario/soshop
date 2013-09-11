@@ -56,7 +56,7 @@ gem 'omniauth-twitter'
 gem 'coveralls', require: false
 gem 'google-analytics-rails'
 gem 'newrelic_rpm'
-gem 'spreedly-core-ruby'
+gem 'spreedly'
 
 group :development do
 	gem 'quiet_assets'
