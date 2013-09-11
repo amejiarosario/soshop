@@ -69,6 +69,7 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'zeus'
+  gem 'simplecov', require: false
 end
 
 group :test do

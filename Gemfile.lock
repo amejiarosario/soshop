@@ -65,7 +65,6 @@ GEM
       rest-client
       simplecov (>= 0.7)
       thor
-    crack (0.1.8)
     debug_inspector (0.0.2)
     devise (3.0.1)
       bcrypt-ruby (~> 3.0)
@@ -101,8 +100,6 @@ GEM
     hashie (2.0.5)
     hike (1.2.3)
     http_parser.rb (0.5.3)
-    httparty (0.7.7)
-      crack (= 0.1.8)
     httpauth (0.2.0)
     i18n (0.6.4)
     jbuilder (1.5.0)
@@ -311,7 +308,8 @@ DEPENDENCIES
   sass-rails (~> 4.0.0)
   sdoc
   shoulda-matchers
-  spreedly-core-ruby
+  simplecov
+  spreedly
   therubyracer
   turbolinks
   twitter-bootstrap-rails

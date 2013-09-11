@@ -1,12 +1,25 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
+
+require 'coveralls'
+
+if ENV['SIMPLECOV']
+  require 'simplecov'
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+    SimpleCov::Formatter::HTMLFormatter,
+    Coveralls::SimpleCov::Formatter
+  ]
+
+  SimpleCov.start 'rails'
+else
+  Coveralls.wear! 'rails'
+end
+
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 # require 'rspec/autorun' # https://groups.google.com/forum/#!msg/ruby-capybara/Kx_lpVAPiRg/7DvShRHZkhYJ
 require 'capybara/rspec'
 require 'capybara/poltergeist'
-require 'coveralls'
-
 
 include ActionDispatch::TestProcess
 include Warden::Test::Helpers
@@ -16,8 +29,6 @@ Warden.test_mode! # http://blog.pixarea.com/2013/01/making-rspec-feature-specs-e
 OmniAuth.config.test_mode = true
 
 Capybara.javascript_driver = :poltergeist
-
-Coveralls.wear!
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
