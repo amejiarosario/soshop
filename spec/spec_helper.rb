@@ -2,6 +2,7 @@
 ENV["RAILS_ENV"] ||= 'test'
 
 require 'coveralls'
+require 'codeclimate-test-reporter'
 
 if ENV['SIMPLECOV']
   require 'simplecov'
@@ -13,6 +14,7 @@ if ENV['SIMPLECOV']
   SimpleCov.start 'rails'
 else
   Coveralls.wear! 'rails'
+  CodeClimate::TestReporter.start
 end
 
 require File.expand_path("../../config/environment", __FILE__)

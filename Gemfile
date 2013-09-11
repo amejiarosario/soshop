@@ -53,7 +53,6 @@ gem 'paperclip'
 gem 'aws-sdk'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
-gem 'coveralls', require: false
 gem 'google-analytics-rails'
 gem 'newrelic_rpm'
 gem 'spreedly'
@@ -69,7 +68,6 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'zeus'
-  gem 'simplecov', require: false
 end
 
 group :test do
@@ -77,4 +75,7 @@ group :test do
   gem 'poltergeist'
   gem 'launchy'
   gem 'shoulda-matchers'
+  gem 'simplecov', require: false
+  gem 'codeclimate-test-reporter', require: false
+  gem 'coveralls', require: false
 end
