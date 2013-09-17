@@ -1,4 +1,6 @@
 Soshop::Application.routes.draw do
+  resources :credit_cards
+
   resources :orders
 
   resources :delivery_methods
