@@ -2,6 +2,9 @@
 
 NAME=soshop
 
+# Start postgres on Mac
+open /Applications/Postgres.app
+
 tmux has-session -t $NAME
 
 if [ $? -eq 0 ]; then
@@ -14,6 +17,9 @@ fi
 tmux start-server
 
 tmux -2 new-session -d -s $NAME
+
+
+tmux set-option -g base-index 1 -t $NAME
 
 ## Set Editor Window
 tmux rename-window -t $NAME:1 editor #tmux new-window -t $NAME:1 -n editor
@@ -30,6 +36,10 @@ tmux split-window -t $NAME:tests -h
 tmux send-keys -t $NAME:tests.1 "zeus start" C-m
 tmux send-keys -t $NAME:tests.0 "guard" C-m
 tmux send-keys -t $NAME:tests.0 "all" C-m
+
+## Set Server Windows
+tmux new-window -t $NAME:4 -n webserver
+tmux send-keys -t $NAME:webserver "foreman start" C-m
 
 # make the tmux session active
 tmux attach-session -d -t $NAME

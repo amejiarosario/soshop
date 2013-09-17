@@ -56,7 +56,8 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'google-analytics-rails'
 gem 'newrelic_rpm'
-gem 'spreedly'
+# gem 'spreedly'
+gem 'activemerchant'
 
 group :development do
 	gem 'quiet_assets'

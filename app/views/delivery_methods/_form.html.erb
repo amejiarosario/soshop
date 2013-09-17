@@ -1,0 +1,29 @@
+<%= form_for(@delivery_method) do |f| %>
+  <% if @delivery_method.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@delivery_method.errors.count, "error") %> prohibited this delivery_method from being saved:</h2>
+
+      <ul>
+      <% @delivery_method.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user %><br>
+    <%= f.text_field :user %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.text_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :options %><br>
+    <%= f.text_area :options %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

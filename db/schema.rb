@@ -11,10 +11,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130826220344) do
+ActiveRecord::Schema.define(version: 20130917010012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "delivery_methods", force: true do |t|
+    t.integer  "user_id"
+    t.string   "type"
+    t.text     "options"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "delivery_methods", ["user_id"], name: "index_delivery_methods_on_user_id", using: :btree
+
+  create_table "orders", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "delivery_method_id"
+    t.integer  "payment_method_id"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "orders", ["delivery_method_id"], name: "index_orders_on_delivery_method_id", using: :btree
+  add_index "orders", ["payment_method_id"], name: "index_orders_on_payment_method_id", using: :btree
+  add_index "orders", ["product_id"], name: "index_orders_on_product_id", using: :btree
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
+
+  create_table "payment_methods", force: true do |t|
+    t.integer  "user_id"
+    t.string   "type"
+    t.text     "options"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "payment_methods", ["user_id"], name: "index_payment_methods_on_user_id", using: :btree
 
   create_table "products", force: true do |t|
     t.string   "title"

@@ -1,0 +1,31 @@
+<h1>Listing delivery_methods</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Type</th>
+      <th>Options</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @delivery_methods.each do |delivery_method| %>
+      <tr>
+        <td><%= delivery_method.user %></td>
+        <td><%= delivery_method.type %></td>
+        <td><%= delivery_method.options %></td>
+        <td><%= link_to 'Show', delivery_method %></td>
+        <td><%= link_to 'Edit', edit_delivery_method_path(delivery_method) %></td>
+        <td><%= link_to 'Destroy', delivery_method, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Delivery method', new_delivery_method_path %>

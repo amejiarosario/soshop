@@ -1,4 +1,10 @@
 Soshop::Application.routes.draw do
+  resources :orders
+
+  resources :delivery_methods
+
+  resources :payment_methods
+
   resources :products
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }

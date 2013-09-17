@@ -10,6 +10,17 @@ GEM
       erubis (~> 2.7.0)
       rack (~> 1.5.2)
       rack-test (~> 0.6.2)
+    active_utils (2.0.0)
+      activesupport (>= 2.3.11)
+      i18n
+    activemerchant (1.38.0)
+      active_utils (~> 2.0)
+      activesupport (>= 2.3.14, < 5.0.0)
+      builder (>= 2.1.2, < 4.0.0)
+      i18n (~> 0.5)
+      json (~> 1.7)
+      money (< 6.0.0)
+      nokogiri (~> 1.4)
     activemodel (4.0.0)
       activesupport (= 4.0.0)
       builder (~> 3.1.0)
@@ -148,6 +159,8 @@ GEM
     mime-types (1.23)
     mini_portile (0.5.1)
     minitest (4.7.5)
+    money (5.1.1)
+      i18n (~> 0.6.0)
     multi_json (1.7.8)
     multipart-post (1.2.0)
     net-scp (1.1.2)
@@ -265,8 +278,6 @@ GEM
       simplecov-html (~> 0.7.1)
     simplecov-html (0.7.1)
     slop (3.4.6)
-    spreedly (2.0.2)
-      nokogiri
     sprockets (2.10.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -309,6 +320,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activemerchant
   aws-sdk
   better_errors
   binding_of_caller
@@ -341,7 +353,6 @@ DEPENDENCIES
   sdoc
   shoulda-matchers
   simplecov
-  spreedly
   therubyracer
   turbolinks
   twitter-bootstrap-rails
