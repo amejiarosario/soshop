@@ -38,7 +38,7 @@ end
 
 # Web servers
 # gem 'unicorn'
-gem 'passenger'
+gem 'passenger', git: 'git://github.com/phusion/passenger.git'
 
 # Use Capistrano for deployment
 gem 'capistrano', group: :development
