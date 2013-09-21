@@ -35,6 +35,7 @@ describe "Orders" do
       select Date.today.year+5, from: :card_year
       click_button 'Create Order'
       #page.should_not have_content 'errors'
+      save_and_open_page
       page.should have_content 'Order was successfully created.'
     end
 

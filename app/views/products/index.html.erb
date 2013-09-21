@@ -19,7 +19,7 @@
       <tr>
         <td><%= link_to product.title, product_path(product) %></td>
         <td><%= product.description %></td>
-        <td><%= product.price %></td>
+        <td><%= number_to_currency product.price %></td>
         <td><%= product.stock %></td>
         <!-- <td><%#= product.photo %></td> -->
         <td><%=l product.created_at, format: :short %></td>

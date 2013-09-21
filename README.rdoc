@@ -1,5 +1,8 @@
 == README
 
+Dependency Status
+{<img src="https://gemnasium.com/amejiarosario/soshop.png" alt="Dependency Status" />}[https://gemnasium.com/amejiarosario/soshop]
+
 Travis
 {<img src="https://secure.travis-ci.org/amejiarosario/soshop.png" />}[http://travis-ci.org/amejiarosario/soshop]
 
