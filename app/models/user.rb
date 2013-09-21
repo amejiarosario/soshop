@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   has_many :orders
   has_many :payment_methods
   has_many :delivery_methods
+  has_many :addresses
+  has_many :credit_cards
 
 	def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
 	  user = User.where(:provider => auth.provider, :uid => auth.uid).first

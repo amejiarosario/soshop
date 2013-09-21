@@ -1,33 +1,61 @@
-<%= form_for(@order) do |f| %>
-  <% if @order.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+<div class="">
+  <%= form_for(@order) do |f| %>
+    <% if @order.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
 
-      <ul>
-      <% @order.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+        <ul>
+        <% @order.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span8">
+        <div class="well">
+          <h4>Contact Information</h4>
+          <div class="field">
+            <%= f.label :full_name, 'Full Name' %><br>
+            <%= f.text_field :full_name %>
+          </div>
+          <div class="field">
+            <%= f.label :email, 'Email Address' %><br>
+            <%= f.text_field :email %>
+          </div>
+        </div>
+
+        <div class="well">
+          <h4>Card Information</h4>
+          <div class="field">
+            <%= f.label :card_number, 'Card Number' %><br>
+            <%= f.text_field :card_number %>
+          </div>
+          <div class="field">
+            <%= f.label :security_code, 'Security Code' %><br>
+            <%= f.text_field :security_code %>
+          </div>
+          <div class="field">
+            <%= f.label :expiration_date %><br>
+            <%= f.text_field :expiration_date %>
+          </div>
+          <div class="field">
+            <%= label_tag :card_month, "Card Expiration" %>
+            <%= select_month nil, {add_month_numbers_true: true}, {name: nil, id: "card_month"}%>
+            <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+10}, {name: nil, id: "card_year"}%>
+          </div>
+        </div>
+      </div>
+      <div class="span4">
+        <div class="well">
+          <h4>Payment Summary</h4>
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+        </div>
+      </div>
+    </div></div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :user %><br>
-    <%= f.text_field :user %>
-  </div>
-  <div class="field">
-    <%= f.label :delivery_method %><br>
-    <%= f.text_field :delivery_method %>
-  </div>
-  <div class="field">
-    <%= f.label :payment_method %><br>
-    <%= f.text_field :payment_method %>
-  </div>
-  <div class="field">
-    <%= f.label :product %><br>
-    <%= f.text_field :product %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

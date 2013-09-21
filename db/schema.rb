@@ -11,12 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130917040548) do
+ActiveRecord::Schema.define(version: 20130917212159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "addresses", force: true do |t|
+    t.integer  "user_id"
+    t.string   "street_line1"
+    t.string   "stree_line2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
+    t.string   "country"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "addresses", ["user_id"], name: "index_addresses_on_user_id", using: :btree
+
   create_table "credit_cards", force: true do |t|
+    t.integer  "user_id"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "number",     limit: 16
@@ -26,6 +41,8 @@ ActiveRecord::Schema.define(version: 20130917040548) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "credit_cards", ["user_id"], name: "index_credit_cards_on_user_id", using: :btree
 
   create_table "delivery_methods", force: true do |t|
     t.integer  "user_id"
@@ -38,6 +55,11 @@ ActiveRecord::Schema.define(version: 20130917040548) do
   add_index "delivery_methods", ["user_id"], name: "index_delivery_methods_on_user_id", using: :btree
 
   create_table "orders", force: true do |t|
+    t.string   "full_name"
+    t.string   "email"
+    t.string   "card_number"
+    t.string   "security_code"
+    t.string   "expiration_date"
     t.integer  "user_id"
     t.integer  "delivery_method_id"
     t.integer  "payment_method_id"

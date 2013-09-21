@@ -25,6 +25,7 @@ require 'capybara/poltergeist'
 
 include ActionDispatch::TestProcess
 include Warden::Test::Helpers
+include ActionDispatch::TestProcess
 
 Warden.test_mode! # http://blog.pixarea.com/2013/01/making-rspec-feature-specs-easy-with-devise
 
@@ -68,7 +69,10 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 
-  config.include Capybara::DSL
+  config.run_all_when_everything_filtered = true
 
+  config.include Capybara::DSL
+  config.include FactoryGirl::Syntax::Methods
   config.include Devise::TestHelpers, :type => :controller
+  config.include ControllerHelpers, :type => :controller
 end

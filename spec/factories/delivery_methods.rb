@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :delivery_method do
-    user nil
+    association :user
     type ""
     options "MyText"
   end

@@ -8,6 +8,8 @@ FactoryGirl.define do
 		price { generate :price }
 		association :user
 		stock 1
-		photo { fixture_file_upload "#{Rails.root}/spec/fixtures/product.jpg", 'image/jpeg' }
+		photo_file_name { 'product.jpg' }
+    photo_content_type { 'image/jpeg' }
+    photo_file_size { 3456 }
 	end
 end

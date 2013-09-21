@@ -5,7 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-include ActionDispatch::TestProcess # fixture_file_upload for FactoryGirl.create :product
 
 puts 'Creating default user...'
 user = User.first ||

@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :payment_method do
-    user nil
+    association :user
     type ""
     options "MyText"
   end

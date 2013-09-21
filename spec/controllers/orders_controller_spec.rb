@@ -20,15 +20,18 @@ require 'spec_helper'
 
 describe OrdersController do
 
+  let(:order) { FactoryGirl.build(:order) }
   # This should return the minimal set of attributes required to create a valid
   # Order. As you add validations to Order, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "user" => FactoryGirl.attributes_for(:user) } }
+  let(:valid_attributes) { order.attributes }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # OrdersController. Be sure to keep this updated too.
   let(:valid_session) { {} }
+
+  before { sign_in }
 
   describe "GET index" do
     it "assigns all orders as @orders" do
@@ -106,8 +109,8 @@ describe OrdersController do
         # specifies that the Order created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Order.any_instance.should_receive(:update).with({ "user" => "" })
-        put :update, {:id => order.to_param, :order => { "user" => "" }}, valid_session
+        Order.any_instance.should_receive(:update).with({ "security_code" => "321" })
+        put :update, {:id => order.to_param, :order => { "security_code" => "321" }}, valid_session
       end
 
       it "assigns the requested order as @order" do
