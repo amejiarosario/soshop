@@ -18,7 +18,4 @@ describe Users::OmniauthCallbacksController do
       expect(page).to have_content email
     end
   end
-
-  it 'user sign in'
-  it 'user link devise with facebook auth'
 end

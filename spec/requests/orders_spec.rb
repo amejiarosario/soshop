@@ -41,8 +41,7 @@ describe "Orders" do
       page.should have_content 'Order was successfully created.'
     end
 
-    it "should be able to pay with paypal"
-
-    it "should fill out delivery method"
+    #it "should be able to pay with paypal"
+    #it "should fill out delivery method"
   end
 end
