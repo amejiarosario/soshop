@@ -38,7 +38,7 @@ end
 
 # Web servers
 # gem 'unicorn'
-gem 'passenger', git: 'git://github.com/phusion/passenger.git'
+gem 'passenger'
 
 # Use Capistrano for deployment
 gem 'capistrano', group: :development
@@ -70,6 +70,7 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'zeus'
+  gem 'lorem-ipsum'
 end
 
 group :test do
