@@ -4,6 +4,31 @@ describe 'Products' do
   let(:user) { FactoryGirl.create :user }
   let(:product) { FactoryGirl.create :product, user: user }
 
+  describe 'POST /products', 'Create' do
+    before do
+      login_as user, scope: :user
+      visit new_product_path
+    end
+
+    it 'should create valid product' do
+      fill_in 'Title', with: 'iPhone 8K'
+      fill_in 'Description', with: 'The phone from the future'
+      fill_in 'Price', with: '635.98'
+      fill_in 'Stock', with: '29'
+      attach_file 'Photo',
+        "#{::Rails.root}/spec/fixtures/product.jpg"
+      click_button 'Create Product'
+      page.should have_content 'Product was successfully created.'
+    end
+
+    it 'should give errors when invalid' do
+      fill_in 'Title', with: 'Bad Data, very Bad'
+      click_button 'Create Product'
+      page.should have_content 'problems'
+      page.should_not have_content 'Product was successfully created.'
+    end
+  end
+
   context 'on creation' do
     it 'unregistred users must receive sign in message' do
       visit new_product_path
