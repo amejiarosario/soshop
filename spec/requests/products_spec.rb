@@ -87,6 +87,7 @@ describe 'Products' do
 
   context 'when user click buy product' do
     it 'should create a new order' do
+      login_as user, scope: :user
       visit product_path(product)
       click_link 'Buy Now'
       page.current_path.should == new_order_path

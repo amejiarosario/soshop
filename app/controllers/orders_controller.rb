@@ -16,6 +16,7 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
+    @product_id = params[:product_id]
   end
 
   # GET /orders/1/edit
@@ -26,6 +27,7 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
+    @order.user = current_user
 
     respond_to do |format|
       if @order.save
@@ -80,6 +82,5 @@ class OrdersController < ApplicationController
         :security_code,
         :expiration_date
       )
-      params[:user_id] = current_user.id
     end
 end

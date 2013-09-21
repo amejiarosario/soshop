@@ -31,7 +31,7 @@ describe OrdersController do
   # OrdersController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  before { sign_in }
+  before { sign_in(order.user) }
 
   describe "GET index" do
     it "assigns all orders as @orders" do

@@ -10,8 +10,8 @@ FactoryGirl.define do
 
     after :build do |order|
       order.product = create(:product, user: order.user)
-      order.delivery_method = create(:delivery_method, user: order.user)
-      order.payment_method = create(:payment_method, user: order.user)
+      #order.delivery_method = create(:delivery_method, user: order.user)
+      #order.payment_method = create(:payment_method, user: order.user)
     end
   end
 end

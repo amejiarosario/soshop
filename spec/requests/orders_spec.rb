@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe "Orders" do
   let(:user) { FactoryGirl.create :user }
+  let(:product) { FactoryGirl.create :product, user: user }
 
   describe "GET /orders" do
   end
@@ -27,15 +28,16 @@ describe "Orders" do
   describe "POST /orders", "Create Order" do
     it "should be able to pay with credit card" do
       login_as user, scope: :user
-      visit new_order_path
+      visit product_path(product)
+      click_link 'Buy Now'
+      page.current_path.should == new_order_path
       fill_in 'Full Name', with: 'Adrian Mejia'
       fill_in 'Email Address', with: 'me@adrianmejia.com'
       fill_in 'Card Number', with: '411111111111'
+      fill_in 'Security Code', with: '123'
       select 'December', from: :card_month
       select Date.today.year+5, from: :card_year
       click_button 'Create Order'
-      #page.should_not have_content 'errors'
-      save_and_open_page
       page.should have_content 'Order was successfully created.'
     end
 
