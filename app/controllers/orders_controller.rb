@@ -21,6 +21,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/1/edit
   def edit
+    @product_id = @order.product.id
   end
 
   # POST /orders

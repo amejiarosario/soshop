@@ -44,4 +44,17 @@ describe "Orders" do
     #it "should be able to pay with paypal"
     #it "should fill out delivery method"
   end
+
+  describe "PUT /orders/1", "Update Order" do
+    let(:order){ FactoryGirl.create :order }
+    before { login_as user, scope: :user }
+
+    it 'should update order successfully' do
+      visit edit_order_path(order)
+      fill_in 'Full Name', with: 'Ivan Mejia'
+      click_button 'Update Order'
+      page.should have_content 'Order was successfully updated.'
+      page.should have_content 'Ivan'
+    end
+  end
 end

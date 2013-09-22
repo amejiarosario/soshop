@@ -29,6 +29,27 @@ describe 'Products' do
     end
   end
 
+  describe 'PUT /products/1', 'Update' do
+    before do
+      login_as user, scope: :user
+      visit edit_product_path(product)
+    end
+
+    it 'should update valid product' do
+      fill_in 'Price', with: '63.00'
+      click_button 'Update Product'
+      page.should have_content 'Product was successfully updated.'
+      page.should have_content '63.00'
+    end
+
+    it 'should fail with invalid data' do
+      fill_in 'Price', with: 'Adrian'
+      click_button 'Update Product'
+      page.should_not have_content 'Product was successfully updated.'
+      page.should have_content 'problems'
+    end
+  end
+
   context 'on creation' do
     it 'unregistred users must receive sign in message' do
       visit new_product_path

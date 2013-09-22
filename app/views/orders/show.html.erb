@@ -1,8 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Order:</strong>
+  <%= @order.attributes %>
+</p>
+
+
+<p>
   <strong>User:</strong>
-  <%= @order.user %>
+  <%= @order.user.attributes %>
 </p>
 
 <!-- <p>
@@ -17,7 +23,7 @@
  -->
 <p>
   <strong>Product:</strong>
-  <%= @order.product %>
+  <%= @order.product.attributes %>
 </p>
 
 <%= link_to 'Edit', edit_order_path(@order) %> |

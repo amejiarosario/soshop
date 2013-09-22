@@ -10,7 +10,7 @@
   <p>
     <%= link_to t('.buy_now', :default => t("helpers.links.buy_now")),
       new_order_path(product_id: @product.id), :class => 'btn btn-primary btn-large', id: 'buy_now'  %>
-      $<%= @product.price %>
+      <%= number_to_currency(@product.price) %>
   </p>
   <% if current_user && current_user == @product.user %>
     <p><%= @product.stock %> in stock.</p>
