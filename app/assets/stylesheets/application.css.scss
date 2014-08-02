@@ -1,0 +1,79 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+
+nav[role="navigation"] {
+  @extend .navbar, .navbar-default;
+  min-height: 150px;
+}
+
+// removes colors from navbar
+.navbar-default, nav[role="navigation"] {
+  background-color: #fff;
+  border-color: #fff;
+}
+
+.banner {
+  @include make-row();
+  text-align: center;
+  color: #fff;
+  background-image: image-url("slide.jpg");
+  height: 400px;
+}
+
+.wrapper {
+  margin: 0 10%;
+}
+
+.column-aside {
+  @include make-row();
+  section {
+    @include make-md-column(6);
+  }
+
+  aside {
+    @include make-md-column(6);
+  }
+}
+
+.three-sections {
+  @include make-row();
+  margin-top: 40px;
+
+  section {
+    @include make-md-column(4, 25px);
+    border: 1px solid black;
+    min-height: 300px;
+    text-align: center;
+  }
+}
+
+.one-column {
+  @include make-row();
+  margin-top: 50px;
+}
+
+footer {
+  @include make-row();
+  color: #777;
+  background: #222;
+  height: 100px;
+  margin-top: 100px;
+  p {
+    text-align: center;
+    padding-top: 50px;
+  }
+}

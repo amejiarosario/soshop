@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '2.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '>= 4.1.4'
 
 # Use sqlite3 as the database for Active Record
-gem 'pg'
+gem 'pg', '>= 0.17.1'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -38,18 +38,22 @@ end
 
 # Web servers
 # gem 'unicorn'
-gem 'passenger'
+gem 'thin'
+
 
 # Use Capistrano for deployment
 gem 'capistrano', group: :development
 
 # Use debugger
-gem 'debugger', group: [:development, :test]
+#gem 'debugger', group: [:development, :test]
 
-gem 'less-rails' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-gem 'twitter-bootstrap-rails'
+# Styles
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+gem 'font-awesome-rails'
+# gem 'normalize-rails' #  *= require normalize-rails
+
 gem 'devise'
-gem 'rails_12factor', group: :production
 gem 'paperclip'
 gem 'aws-sdk'
 gem 'omniauth-facebook'
@@ -57,6 +61,7 @@ gem 'omniauth-twitter'
 gem 'google-analytics-rails'
 gem 'newrelic_rpm'
 gem 'spreedly'
+
 
 group :development do
 	gem 'quiet_assets'
@@ -79,4 +84,9 @@ group :test do
   gem 'simplecov', require: false
   gem 'codeclimate-test-reporter', require: false
   gem 'coveralls', require: false
+end
+
+group :production do
+  gem 'rails_12factor'
+  gem 'passenger'
 end
